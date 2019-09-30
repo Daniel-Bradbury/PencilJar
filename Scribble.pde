@@ -1,10 +1,11 @@
 int click;
-int pixelScale;
+PImage saved;
 void setup() {
   size(1200,800);
   frameRate(9999);
   noSmooth();
   background(255);
+  saved = get();
 }
 
 void mousePressed() {
@@ -16,6 +17,7 @@ void mouseReleased() {
 }
 
 void draw() {
+  background( saved );
   if (click==1) {
   strokeWeight(5);
   stroke(0);
@@ -23,6 +25,7 @@ void draw() {
   vertex(mouseX-1,mouseY-1);
   vertex(pmouseX-1,pmouseY-1);
   endShape();
+  saved = get();
   }
   strokeWeight(1);
   stroke(100);
