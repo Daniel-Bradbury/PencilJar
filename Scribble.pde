@@ -1,9 +1,14 @@
 int click;
 PImage saved;
 PImage cursorPencil;
+PImage cursorRectangle;
+PImage cursor;
+boolean handbool;
 void setup() {
   cursorPencil=loadImage("cursor/cursor-pencil.png");
-  cursor(cursorPencil);
+  cursorRectangle=loadImage("cursor/cursor-rectangle.png");
+  cursor=cursorPencil;
+  cursor(cursor);
   size(1200, 800);
   frameRate(9999);
   noSmooth();
@@ -20,6 +25,7 @@ void mouseReleased() {
 }
 
 void draw() {
+  handbool=false;
   background( saved );
   if (keyPressed) {
     if (key == 'r' || key == 'R') {
@@ -53,4 +59,15 @@ void draw() {
   fill(0, 0, 0, 60);
   rect(1120, 100, 10, 630);
   rect(100, 720, 1020, 10);
+  
+  pushMatrix();
+  translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
+  toolbar();
+  if (handbool) {
+    cursor(HAND);
+  } else {
+    cursor(cursor);
+  }
+  popMatrix();
+  
 }
