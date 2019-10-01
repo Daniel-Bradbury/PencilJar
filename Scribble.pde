@@ -1,6 +1,9 @@
 int click;
 PImage saved;
+PImage cursorPencil;
 void setup() {
+  cursorPencil=loadImage("cursor/cursor-pencil.png");
+  cursor(cursorPencil);
   size(1200, 800);
   frameRate(9999);
   noSmooth();
@@ -18,19 +21,22 @@ void mouseReleased() {
 
 void draw() {
   background( saved );
-if (keyPressed) {
+  if (keyPressed) {
     if (key == 'r' || key == 'R') {
       background(255);
       saved = get();
     }
   }
   if (click==1) {
+    pushMatrix();
+    translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
     strokeWeight(5);
     stroke(0);
     beginShape();
     vertex(mouseX-1, mouseY-1);
     vertex(pmouseX-1, pmouseY-1);
     endShape();
+    popMatrix();
     saved = get();
   }
   strokeWeight(1);
