@@ -1,4 +1,4 @@
-int click;
+int click, press;
 int rectx, recty;
 PImage canvas;
 PImage cursorPencil;
@@ -18,6 +18,7 @@ void setup() {
 }
 
 void mousePressed() {
+  press=1;
   click=1;
   if (cursor==cursorRectangle) {
     pushMatrix();
@@ -89,4 +90,5 @@ void draw() {
     cursor(cursor);
   }
   popMatrix();
+  press=0;
 }
