@@ -1,5 +1,6 @@
 int click;
-PImage saved;
+int rectx, recty;
+PImage canvas;
 PImage cursorPencil;
 PImage cursorRectangle;
 PImage cursor;
@@ -13,38 +14,57 @@ void setup() {
   frameRate(9999);
   noSmooth();
   background(255);
-  saved = get();
+  canvas = get();
 }
 
 void mousePressed() {
   click=1;
+  if (cursor==cursorRectangle) {
+    pushMatrix();
+    translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
+    rectx=mouseX;
+    recty=mouseY;
+    popMatrix();
+  }
 }
 
 void mouseReleased() {
   click=0;
+  if (cursor==cursorRectangle) {
+    canvas = get();
+  }
 }
 
 void draw() {
   handbool=false;
-  background( saved );
+  background( canvas );
   if (keyPressed) {
     if (key == 'r' || key == 'R') {
       background(255);
-      saved = get();
+      canvas = get();
     }
   }
+  pushMatrix();
+  translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   if (click==1) {
-    pushMatrix();
-    translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
-    strokeWeight(5);
-    stroke(0);
-    beginShape();
-    vertex(mouseX-1, mouseY-1);
-    vertex(pmouseX-1, pmouseY-1);
-    endShape();
-    popMatrix();
-    saved = get();
+    if (cursor==cursorPencil) {
+      strokeWeight(5);
+      stroke(0);
+      beginShape();
+      vertex(mouseX-1, mouseY-1);
+      vertex(pmouseX-1, pmouseY-1);
+      endShape();
+      popMatrix();
+      canvas = get();
+      pushMatrix();
+    } else {
+      if (cursor==cursorRectangle) {
+        fill(0, 255);
+        rect(rectx, recty, mouseX-rectx, mouseY-recty);
+      }
+    }
   }
+  popMatrix();
   strokeWeight(1);
   stroke(100);
   fill(100);
@@ -59,7 +79,7 @@ void draw() {
   fill(0, 0, 0, 60);
   rect(1120, 100, 10, 630);
   rect(100, 720, 1020, 10);
-  
+
   pushMatrix();
   translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   toolbar();
@@ -69,5 +89,4 @@ void draw() {
     cursor(cursor);
   }
   popMatrix();
-  
 }

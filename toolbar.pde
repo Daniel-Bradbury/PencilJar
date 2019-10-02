@@ -11,6 +11,9 @@ class tool {
     rect(x,y,cursorPencil.width*2,cursorPencil.height*2);
     if (mouseX>x-img.width*2 && mouseX<x+img.height*2 &&
       mouseY>y-img.height/4 && mouseY<y+img.height*2) {
+      if (click==1) {
+        cursor=img;
+      }
       tint(255, 255);
       image(this.img, this.x+4, this.y+4, this.img.width*2, img.height*2);
       handbool=true;
