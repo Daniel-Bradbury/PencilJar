@@ -11,7 +11,7 @@ void setup() {
   cursor=cursorPencil;
   cursor(cursor);
   size(1200, 800);
-  frameRate(9999);
+  frameRate(120);
   noSmooth();
   background(255);
   canvas = get();
