@@ -3,11 +3,14 @@ int rectx, recty;
 PImage canvas;
 PImage cursorPencil;
 PImage cursorRectangle;
+PImage cursorOval;
 PImage cursor;
 boolean handbool;
 void setup() {
+  ellipseMode(CORNER);
   cursorPencil=loadImage("cursor/cursor-pencil.png");
   cursorRectangle=loadImage("cursor/cursor-rectangle.png");
+  cursorOval=loadImage("cursor/cursor-oval.png");
   cursor=cursorPencil;
   cursor(cursor);
   size(1200, 800);
@@ -20,7 +23,7 @@ void setup() {
 void mousePressed() {
   press=1;
   click=1;
-  if (cursor==cursorRectangle) {
+  if (cursor==cursorRectangle||cursor==cursorOval) {
     pushMatrix();
     translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
     rectx=mouseX;
@@ -31,7 +34,7 @@ void mousePressed() {
 
 void mouseReleased() {
   click=0;
-  if (cursor==cursorRectangle) {
+  if (cursor==cursorRectangle||cursor==cursorOval) {
     canvas = get();
   }
 }
@@ -58,11 +61,14 @@ void draw() {
       popMatrix();
       canvas = get();
       pushMatrix();
-    } else {
-      if (cursor==cursorRectangle) {
-        fill(0, 255);
-        rect(rectx, recty, mouseX-rectx, mouseY-recty);
-      }
+    }
+    if (cursor==cursorRectangle) {
+      fill(0, 255);
+      rect(rectx, recty, mouseX-rectx, mouseY-recty);
+    }
+    if (cursor==cursorOval) {
+      fill(0, 255);
+      ellipse(rectx, recty, mouseX-rectx, mouseY-recty);
     }
   }
   popMatrix();

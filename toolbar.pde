@@ -29,4 +29,6 @@ void toolbar() {
   Pencil.draw();
   tool Rectangle = new tool(cursorRectangle,20,190);
   Rectangle.draw();
+  tool Oval = new tool(cursorOval,20,280);
+  Oval.draw();
 }
