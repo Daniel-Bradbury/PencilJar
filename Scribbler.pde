@@ -51,7 +51,7 @@ void mouseReleased() {
 }
 void keyPressed() {
   if (key=='s' || key=='S') {
-    canvas.save("save.png");
+    canvas.save("images/save.png");
   }
 }
 void draw() {
