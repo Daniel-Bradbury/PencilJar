@@ -8,7 +8,7 @@ PImage cursor;
 boolean handbool;
 int c;
 void canvasUpdate() {
-  canvas = get(100, 80, width-200, height-160);
+  canvas = get(80, 80, width-160, height-160);
 }
 void setup() {
   ellipseMode(CORNER);
@@ -57,7 +57,7 @@ void keyPressed() {
 void draw() {
 
   handbool=false;
-  image(canvas, 100, 80);
+  image(canvas, 80, 80);
   if (keyPressed) {
     if (key == 'r' || key == 'R') {
       background(255);
