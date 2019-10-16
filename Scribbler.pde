@@ -109,7 +109,7 @@ void draw() {
   text("Save with S!",width/2,(height/20)*19);
   text("(This will overwrite your last saved image if you do not rename it)",width/2,(height/20)*19+20);
   
-  fill(100);
+  fill(0, 0, 0, 60);
   pushMatrix();
   translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   toolbar();
