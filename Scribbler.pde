@@ -1,22 +1,21 @@
 int click, press;
 int rectx, recty;
 PImage canvas;
-PImage cursorPencil;
-PImage cursorRectangle;
-PImage cursorOval;
-PImage cursor;
+PImage iconPen;
+PImage iconOval;
+PImage iconRectangle;
+String tool;
 boolean handbool;
 int c;
 void canvasUpdate() {
   canvas = get(80, 80, width-160, height-160);
 }
 void setup() {
+  iconPen=loadImage("icon-pen.png");
+  iconOval=loadImage("icon-oval.png");
+  iconRectangle=loadImage("icon-rectangle.png");
   ellipseMode(CORNER);
-  cursorPencil=loadImage("cursor/cursor-pencil.png");
-  cursorRectangle=loadImage("cursor/cursor-rectangle.png");
-  cursorOval=loadImage("cursor/cursor-oval.png");
-  cursor=cursorPencil;
-  cursor(cursor);
+  tool="pen";
   size(1200, 800);
   frameRate(120);
   noSmooth();
@@ -34,18 +33,15 @@ void mousePressed() {
       c=255;
     }
   }
-  if (cursor==cursorRectangle||cursor==cursorOval) {
-    pushMatrix();
-    translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
+  if (tool=="rectangle"||tool=="oval") {
     rectx=mouseX;
     recty=mouseY;
-    popMatrix();
   }
 }
 
 void mouseReleased() {
   click=0;
-  if (cursor==cursorRectangle||cursor==cursorOval) {
+  if (tool=="rectangle"||tool=="oval") {
     canvasUpdate();
   }
 }
@@ -64,30 +60,25 @@ void draw() {
       canvasUpdate();
     }
   }
-  pushMatrix();
-  translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   if (click==1) {
-    if (cursor==cursorPencil) {
+    if (tool=="pen") {
       strokeWeight(5);
       stroke(c);
       beginShape();
       vertex(mouseX-1, mouseY-1);
       vertex(pmouseX-1, pmouseY-1);
       endShape();
-      popMatrix();
       canvasUpdate();
-      pushMatrix();
     }
-    if (cursor==cursorRectangle) {
+    if (tool=="rectangle") {
       fill(c, 255);
       rect(rectx, recty, mouseX-rectx, mouseY-recty);
     }
-    if (cursor==cursorOval) {
+    if (tool=="oval") {
       fill(c, 255);
       ellipse(rectx, recty, mouseX-rectx, mouseY-recty);
     }
   }
-  popMatrix();
   strokeWeight(1);
   stroke(100);
   fill(100);
@@ -110,14 +101,6 @@ void draw() {
   text("(This will overwrite your last saved image if you do not rename it)",width/2,(height/20)*19+20);
   
   fill(0, 0, 0, 60);
-  pushMatrix();
-  translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   toolbar();
-  if (handbool) {
-    cursor(HAND);
-  } else {
-    cursor(cursor);
-  }
-  popMatrix();
   press=0;
 }
