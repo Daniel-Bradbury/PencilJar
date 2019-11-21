@@ -33,10 +33,10 @@ class tool {
 }
 
 void toolbar() {
-  tool Pencil = new tool(iconPen,20,100);
+  tool Pencil = new tool(iconPen,10,100);
   Pencil.draw();
-  tool Rectangle = new tool(iconRectangle,20,190);
+  tool Rectangle = new tool(iconRectangle,10,190);
   Rectangle.draw();
-  tool Oval = new tool(iconOval,20,280);
+  tool Oval = new tool(iconOval,10,280);
   Oval.draw();
 }
