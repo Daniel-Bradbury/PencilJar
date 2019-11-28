@@ -17,6 +17,7 @@ void setup() {
   ellipseMode(CORNER);
   tool="pen";
   size(1200, 800);
+  orientation(LANDSCAPE);
   frameRate(120);
   noSmooth();
   background(255);
@@ -51,8 +52,13 @@ void keyPressed() {
   }
 }
 void draw() {
-
+  if (tool=="pen") {
+    tint(255,0);
+  } else {
+    tint(255,255);
+  }
   handbool=false;
+  
   image(canvas, 80, 80);
   if (keyPressed) {
     if (key == 'r' || key == 'R') {
@@ -62,14 +68,12 @@ void draw() {
   }
   if (click==1) {
     if (tool=="pen") {
+      
       strokeWeight(5);
       stroke(c);
-      beginShape();
-      vertex(mouseX-1, mouseY-1);
-      vertex(pmouseX-1, pmouseY-1);
-      endShape();
+      line(mouseX-1, mouseY-1, pmouseX-1, pmouseY-1);
       canvasUpdate();
-    }
+    } 
     if (tool=="rectangle") {
       fill(c, 255);
       rect(rectx, recty, mouseX-rectx, mouseY-recty);
@@ -80,8 +84,8 @@ void draw() {
     }
   }
   strokeWeight(1);
-  stroke(100);
-  fill(100);
+  stroke(100, 255);
+  fill(100, 255);
 
   rect(0, 0, 80, 800);
   rect(1120, 0, 80, 800);
