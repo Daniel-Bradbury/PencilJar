@@ -21,6 +21,9 @@ class tool {
         if (img==iconRectangle) {
         tool="rectangle";
         }
+        if (img==iconEraser) {
+        tool="eraser";
+        }
       }
       tint(255, 255);
       image(this.img, this.x+4, this.y+4, this.img.width*2, img.height*2);
@@ -39,4 +42,6 @@ void toolbar() {
   Rectangle.draw();
   tool Oval = new tool(iconOval,10,280);
   Oval.draw();
+  tool Eraser = new tool(iconEraser,10,370);
+  Eraser.draw();
 }

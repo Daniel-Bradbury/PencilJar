@@ -4,6 +4,7 @@ PImage canvas;
 PImage iconPen;
 PImage iconOval;
 PImage iconRectangle;
+PImage iconEraser;
 String tool;
 boolean handbool;
 int c;
@@ -14,6 +15,7 @@ void setup() {
   iconPen=loadImage("icon-pen.png");
   iconOval=loadImage("icon-oval.png");
   iconRectangle=loadImage("icon-rectangle.png");
+  iconEraser=loadImage("icon-eraser.png");
   ellipseMode(CORNER);
   tool="pen";
   size(1200, 800);
@@ -52,7 +54,7 @@ void keyPressed() {
   }
 }
 void draw() {
-  if (tool=="pen") {
+  if (tool=="pen"||tool=="eraser") {
     tint(255,0);
   } else {
     tint(255,255);
@@ -68,12 +70,11 @@ void draw() {
   }
   if (click==1) {
     if (tool=="pen") {
-      
       strokeWeight(5);
       stroke(c);
       line(mouseX-1, mouseY-1, pmouseX-1, pmouseY-1);
       canvasUpdate();
-    } 
+    }
     if (tool=="rectangle") {
       fill(c, 255);
       rect(rectx, recty, mouseX-rectx, mouseY-recty);
@@ -81,6 +82,12 @@ void draw() {
     if (tool=="oval") {
       fill(c, 255);
       ellipse(rectx, recty, mouseX-rectx, mouseY-recty);
+    }
+    if (tool=="eraser") {
+      strokeWeight(20);
+      stroke(255);
+      line(mouseX-1, mouseY-1, pmouseX-1, pmouseY-1);
+      canvasUpdate();
     }
   }
   strokeWeight(1);
