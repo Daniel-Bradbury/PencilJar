@@ -56,6 +56,7 @@ void keyPressed() {
 }
 void draw() {
   handbool=false;
+  tint(255,255);
   image(canvas, 80, 80);
   if (keyPressed) {
     if (key == 'r' || key == 'R') {
