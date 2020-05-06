@@ -11,6 +11,7 @@ void canvasUpdate() {
   canvas = get(80, 80, width-160, height-160);
 }
 void setup() {
+  ((PGraphicsOpenGL)g).textureSampling(3);
   ellipseMode(CORNER);
   cursorPencil=loadImage("cursor/cursor-pencil.png");
   cursorRectangle=loadImage("cursor/cursor-rectangle.png");
@@ -18,7 +19,7 @@ void setup() {
   cursor=cursorPencil;
   cursor(cursor,4,4);
   size(1200, 800, P2D);
-  frameRate(500);
+  frameRate(200);
   noSmooth();
   background(255);
   canvasUpdate();
