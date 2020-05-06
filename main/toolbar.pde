@@ -11,7 +11,7 @@ class tool {
     rect(x,y,cursorPencil.width*2,cursorPencil.height*2);
     if (mouseX>x-img.width*2 && mouseX<x+img.height*2 &&
       mouseY>y-img.height/4 && mouseY<y+img.height*2) {
-      if (press==1) {
+      if (press) {
         cursor=img;
       }
       tint(255, 255);

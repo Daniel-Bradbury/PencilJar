@@ -1,4 +1,4 @@
-int click, press;
+boolean click, press;
 int rectx, recty;
 PImage canvas;
 PImage cursorPencil;
@@ -25,8 +25,8 @@ void setup() {
 }
 
 void mousePressed() {
-  press=1;
-  click=1;
+  press=true;
+  click=true;
   if (mouseButton == LEFT) {
     c=0;
   } else {
@@ -44,7 +44,7 @@ void mousePressed() {
 }
 
 void mouseReleased() {
-  click=0;
+  click=false;
   if (cursor==cursorRectangle||cursor==cursorOval) {
     canvasUpdate();
   }
@@ -66,26 +66,10 @@ void draw() {
   }
   pushMatrix();
   translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
-  if (click==1) {
-    if (cursor==cursorPencil) {
-      strokeWeight(5);
-      stroke(c);
-      beginShape();
-      vertex(mouseX-1, mouseY-1);
-      vertex(pmouseX-1, pmouseY-1);
-      endShape();
-      popMatrix();
-      canvasUpdate();
-      pushMatrix();
-    }
-    if (cursor==cursorRectangle) {
-      fill(c, 255);
-      rect(rectx, recty, mouseX-rectx, mouseY-recty);
-    }
-    if (cursor==cursorOval) {
-      fill(c, 255);
-      ellipse(rectx, recty, mouseX-rectx, mouseY-recty);
-    }
+  if (click) {
+    toolPencil();
+    toolRectangle();
+    toolOval();
   }
   popMatrix();
   strokeWeight(1);
@@ -119,5 +103,5 @@ void draw() {
     cursor(cursor);
   }
   popMatrix();
-  press=0;
+  press=false;
 }
