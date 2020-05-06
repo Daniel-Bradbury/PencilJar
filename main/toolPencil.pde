@@ -1,13 +1,10 @@
 void toolPencil() {
   if (tool=="pencil") {
+    drawCanvas=false;
     strokeWeight(5);
     stroke(c);
-    beginShape();
-    vertex(mouseX-1, mouseY-1);
-    vertex(pmouseX-1, pmouseY-1);
-    endShape();
+    line(mouseX-1, mouseY-1, pmouseX-1, pmouseY-1);
     popMatrix();
-    canvasUpdate();
     pushMatrix();
   }
 }

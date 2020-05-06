@@ -5,7 +5,7 @@ PImage cursorPencil;
 PImage cursorRectangle;
 PImage cursorOval;
 PImage cursor;
-boolean handbool, _handbool;
+boolean handbool, _handbool, drawCanvas=true;
 int c;
 void canvasUpdate() {
   canvas = get(80, 80, width-160, height-160);
@@ -57,7 +57,9 @@ void keyPressed() {
 void draw() {
   handbool=false;
   tint(255,254);
-  image(canvas, 80, 80);
+  if (drawCanvas) {
+    image(canvas, 80, 80);
+  }
   if (keyPressed) {
     if (key == 'r' || key == 'R') {
       background(255);
@@ -70,6 +72,12 @@ void draw() {
     toolPencil();
     toolRectangle();
     toolOval();
+  }
+  if (!mousePressed) {
+    if (tool=="pencil") {
+      canvasUpdate();
+      drawCanvas=true;
+    }
   }
   popMatrix();
   strokeWeight(1);
