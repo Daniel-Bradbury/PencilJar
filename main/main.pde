@@ -5,7 +5,7 @@ PImage cursorPencil;
 PImage cursorRectangle;
 PImage cursorOval;
 PImage cursor;
-boolean handbool;
+boolean handbool, _handbool;
 int c;
 void canvasUpdate() {
   canvas = get(80, 80, width-160, height-160);
@@ -22,6 +22,7 @@ void setup() {
   noSmooth();
   background(255);
   canvasUpdate();
+  _handbool=false;
 }
 
 void mousePressed() {
@@ -55,7 +56,6 @@ void keyPressed() {
   }
 }
 void draw() {
-
   handbool=false;
   image(canvas, 80, 80);
   if (keyPressed) {
@@ -97,11 +97,14 @@ void draw() {
   pushMatrix();
   translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   toolbar();
-  if (handbool) {
-    cursor(HAND);
-  } else {
-    cursor(cursor);
+  if (handbool!=_handbool) {
+    if (handbool) {
+      cursor(HAND);
+    } else {
+      cursor(cursor);
+    }
   }
   popMatrix();
   press=false;
+  _handbool=handbool;
 }
