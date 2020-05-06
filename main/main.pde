@@ -17,8 +17,8 @@ void setup() {
   cursorOval=loadImage("cursor/cursor-oval.png");
   cursor=cursorPencil;
   cursor(cursor,4,4);
-  size(1200, 800);
-  frameRate(120);
+  size(1200, 800, P2D);
+  frameRate(500);
   noSmooth();
   background(255);
   canvasUpdate();
@@ -45,9 +45,8 @@ void mousePressed() {
 
 void mouseReleased() {
   click=false;
-  if (cursor==cursorRectangle||cursor==cursorOval) {
-    canvasUpdate();
-  }
+  canvasUpdate();
+  image(canvas, 80, 80);
 }
 void keyPressed() {
   if (key=='s' || key=='S') {
@@ -73,12 +72,6 @@ void draw() {
     toolRectangle();
     toolOval();
   }
-  if (!mousePressed) {
-    if (tool=="pencil") {
-      canvasUpdate();
-      drawCanvas=true;
-    }
-  }
   popMatrix();
   strokeWeight(1);
   stroke(100);
@@ -100,7 +93,7 @@ void draw() {
   textAlign(CENTER);
   text("Save with S!",width/2,(height/20)*19);
   text("(This will overwrite your last saved image if you do not rename it)",width/2,(height/20)*19+20);
-  
+  text(frameRate, width-50, 20);
   fill(0, 0, 0, 60);
   pushMatrix();
   translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
