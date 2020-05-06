@@ -1,5 +1,5 @@
 void toolPencil() {
-  if (cursor==cursorPencil) {
+  if (tool=="pencil") {
     strokeWeight(5);
     stroke(c);
     beginShape();

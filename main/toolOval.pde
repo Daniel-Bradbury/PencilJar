@@ -1,5 +1,5 @@
 void toolOval() {
-  if (cursor==cursorOval) {
+  if (tool=="oval") {
     fill(c, 255);
     ellipse(rectx, recty, mouseX-rectx, mouseY-recty);
   }
