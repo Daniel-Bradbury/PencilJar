@@ -16,7 +16,7 @@ void setup() {
   cursorRectangle=loadImage("cursor/cursor-rectangle.png");
   cursorOval=loadImage("cursor/cursor-oval.png");
   cursor=cursorPencil;
-  cursor(cursor);
+  cursor(cursor,4,4);
   size(1200, 800);
   frameRate(120);
   noSmooth();
@@ -37,7 +37,6 @@ void mousePressed() {
   }
   if (cursor==cursorRectangle||cursor==cursorOval) {
     pushMatrix();
-    translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
     rectx=mouseX;
     recty=mouseY;
     popMatrix();
@@ -65,7 +64,7 @@ void draw() {
     }
   }
   pushMatrix();
-  translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
+  
   if (click) {
     toolPencil();
     toolRectangle();
@@ -101,7 +100,7 @@ void draw() {
     if (handbool) {
       cursor(HAND);
     } else {
-      cursor(cursor);
+      cursor(cursor,4,4);
     }
   }
   popMatrix();
