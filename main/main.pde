@@ -65,12 +65,6 @@ void draw() {
   if (drawCanvas) {
     image(canvas, 80, 80);
   }
-  if (keyPressed) {
-    if (key == 'r' || key == 'R') {
-      background(255);
-      canvasUpdate();
-    }
-  }
   if (click) {
     toolPencil();
     toolEraser();
