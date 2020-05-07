@@ -93,7 +93,7 @@ void draw() {
   fill(0, 0, 0, 60);
   toolbar();
   fill(c);
-  rect(10,10,30,30);
+  rect(width-40,10,30,30);
   if (handbool!=_handbool) {
     if (handbool) {
       cursor(HAND);
