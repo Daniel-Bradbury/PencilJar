@@ -90,6 +90,8 @@ void draw() {
   pushMatrix();
   translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   toolbar();
+  fill(c);
+  rect(10,10,30,30);
   if (handbool!=_handbool) {
     if (handbool) {
       cursor(HAND);
