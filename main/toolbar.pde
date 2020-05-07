@@ -29,14 +29,14 @@ class tool {
 }
 
 void toolbar() {
-  tool Pencil = new tool(cursorPencil,"pencil",20,100);
+  tool Pencil = new tool(cursorPencil,"pencil",10,100);
   Pencil.draw();
-  tool Eraser = new tool(cursorEraser,"eraser",20,190);
+  tool Eraser = new tool(cursorEraser,"eraser",10,190);
   Eraser.draw();
-  tool Dropper = new tool(cursorDropper,"dropper",20,280);
+  tool Dropper = new tool(cursorDropper,"dropper",10,280);
   Dropper.draw();
-  tool Rectangle = new tool(cursorRectangle,"rectangle",20,370);
+  tool Rectangle = new tool(cursorRectangle,"rectangle",10,370);
   Rectangle.draw();
-  tool Oval = new tool(cursorOval,"oval",20,460);
+  tool Oval = new tool(cursorOval,"oval",10,460);
   Oval.draw();
 }

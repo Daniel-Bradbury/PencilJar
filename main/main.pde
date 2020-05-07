@@ -87,8 +87,6 @@ void draw() {
   text("(This will overwrite your last saved image if you do not rename it)",width/2,(height/20)*19+20);
   text(frameRate, width-50, 20);
   fill(0, 0, 0, 60);
-  pushMatrix();
-  translate((-cursorPencil.width/2)+5, (-cursorPencil.height/2)+5);
   toolbar();
   fill(c);
   rect(10,10,30,30);
@@ -99,7 +97,6 @@ void draw() {
       cursor(cursor,4,4);
     }
   }
-  popMatrix();
   press=false;
   _handbool=handbool;
 }
