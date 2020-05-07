@@ -1,3 +1,5 @@
+import g4p_controls.*;
+
 boolean click, press;
 int rectx, recty;
 PImage canvas;
@@ -7,7 +9,21 @@ int c;
 void canvasUpdate() {
   canvas = get(80, 80, width-160, height-160);
 }
+public void spectrumWindowSetup(PApplet app, GWinData data) {
+  app.image(loadImage("colourspectrum.jpg"),0,0);
+  app.cursor(cursorDropper,4,4);
+}
+public void spectrumDropper(PApplet app, GWinData data, MouseEvent mouseEvent) {
+  if (mouseEvent.getAction()==MouseEvent.PRESS) {
+    c=app.get(app.mouseX,app.mouseY);
+  }
+}
+GWindow colourWindow;
 void setup() {
+  colourWindow = GWindow.getWindow(this, "Colour palette", 100, 50, 600, 388, JAVA2D);
+  colourWindow.setActionOnClose(G4P.KEEP_OPEN);
+  colourWindow.addPreHandler(this, "spectrumWindowSetup");
+  colourWindow.addMouseHandler(this, "spectrumDropper");
   ((PGraphicsOpenGL)g).textureSampling(3);
   ellipseMode(CORNER);
   load();
@@ -58,10 +74,10 @@ void draw() {
   if (click) {
     toolPencil();
     toolEraser();
+    toolDropper();
     toolRectangle();
     toolOval();
   }
-  spectrumDropper();
 
   strokeWeight(1);
   stroke(100);
@@ -77,12 +93,6 @@ void draw() {
   fill(0, 0, 0, 60);
   rect(1120, 100, 10, 630);
   rect(100, 720, 1020, 10);
-  
-  
-  image(colourSpectrum,canvas.width-80,0,160,80);
-  if (click) {
-    toolDropper();
-  }
   
   fill(0);
   textSize(18);
