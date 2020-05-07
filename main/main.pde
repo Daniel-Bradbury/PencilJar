@@ -61,6 +61,8 @@ void draw() {
     toolRectangle();
     toolOval();
   }
+  spectrumDropper();
+
   strokeWeight(1);
   stroke(100);
   fill(100);
