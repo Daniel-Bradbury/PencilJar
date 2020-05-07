@@ -55,16 +55,12 @@ void draw() {
       canvasUpdate();
     }
   }
-  pushMatrix();
-  
   if (click) {
     toolPencil();
     toolEraser();
-    toolDropper();
     toolRectangle();
     toolOval();
   }
-  popMatrix();
   strokeWeight(1);
   stroke(100);
   fill(100);
@@ -79,6 +75,12 @@ void draw() {
   fill(0, 0, 0, 60);
   rect(1120, 100, 10, 630);
   rect(100, 720, 1020, 10);
+  
+  
+  image(colourSpectrum,canvas.width-80,0,160,80);
+  if (click) {
+    toolDropper();
+  }
   
   fill(0);
   textSize(18);
