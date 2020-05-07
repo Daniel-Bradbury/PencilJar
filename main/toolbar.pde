@@ -31,8 +31,10 @@ class tool {
 void toolbar() {
   tool Pencil = new tool(cursorPencil,"pencil",20,100);
   Pencil.draw();
-  tool Rectangle = new tool(cursorRectangle,"rectangle",20,190);
+  tool Eraser = new tool(cursorEraser,"eraser",20,190);
+  Eraser.draw();
+  tool Rectangle = new tool(cursorRectangle,"rectangle",20,280);
   Rectangle.draw();
-  tool Oval = new tool(cursorOval,"oval",20,280);
+  tool Oval = new tool(cursorOval,"oval",20,370);
   Oval.draw();
 }
