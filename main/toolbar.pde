@@ -39,4 +39,6 @@ void toolbar() {
   Rectangle.draw();
   tool Oval = new tool(cursorOval,"oval",10,460);
   Oval.draw();
+  tool FillAll = new tool(cursorFillAll,"fillall",10,550);
+  FillAll.draw();
 }

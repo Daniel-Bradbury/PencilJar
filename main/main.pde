@@ -77,6 +77,7 @@ void draw() {
     toolDropper();
     toolRectangle();
     toolOval();
+    toolFillAll();
   }
 
   strokeWeight(1);
