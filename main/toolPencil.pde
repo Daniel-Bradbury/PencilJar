@@ -1,6 +1,5 @@
 void toolPencil() {
   if (tool=="pencil") {
-    c=0;
     drawCanvas=false;
     strokeWeight(5);
     stroke(c);

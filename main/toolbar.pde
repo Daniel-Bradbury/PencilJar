@@ -33,8 +33,10 @@ void toolbar() {
   Pencil.draw();
   tool Eraser = new tool(cursorEraser,"eraser",20,190);
   Eraser.draw();
-  tool Rectangle = new tool(cursorRectangle,"rectangle",20,280);
+  tool Dropper = new tool(cursorDropper,"dropper",20,280);
+  Dropper.draw();
+  tool Rectangle = new tool(cursorRectangle,"rectangle",20,370);
   Rectangle.draw();
-  tool Oval = new tool(cursorOval,"oval",20,370);
+  tool Oval = new tool(cursorOval,"oval",20,460);
   Oval.draw();
 }

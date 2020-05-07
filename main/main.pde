@@ -1,10 +1,6 @@
 boolean click, press;
 int rectx, recty;
 PImage canvas;
-PImage cursorPencil;
-PImage cursorRectangle;
-PImage cursorOval;
-PImage cursorEraser;
 PImage cursor;
 boolean handbool, _handbool, drawCanvas=true;
 int c;
@@ -14,10 +10,7 @@ void canvasUpdate() {
 void setup() {
   ((PGraphicsOpenGL)g).textureSampling(3);
   ellipseMode(CORNER);
-  cursorPencil=loadImage("cursor/cursor-pencil.png");
-  cursorEraser=loadImage("cursor/cursor-eraser.png");
-  cursorRectangle=loadImage("cursor/cursor-rectangle.png");
-  cursorOval=loadImage("cursor/cursor-oval.png");
+  load();
   cursor=cursorPencil;
   cursor(cursor,4,4);
   size(1200, 800, P2D);
@@ -67,6 +60,7 @@ void draw() {
   if (click) {
     toolPencil();
     toolEraser();
+    toolDropper();
     toolRectangle();
     toolOval();
   }
