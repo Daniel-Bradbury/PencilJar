@@ -1,7 +1,7 @@
 import g4p_controls.*;
 
 boolean click, press;
-int rectx, recty;
+int initx, inity;
 PImage canvas;
 PImage cursor;
 boolean handbool, _handbool, drawCanvas=true;
@@ -41,12 +41,8 @@ void setup() {
 void mousePressed() {
   press=true;
   click=true;
-  if (cursor==cursorRectangle||cursor==cursorOval) {
-    pushMatrix();
-    rectx=mouseX;
-    recty=mouseY;
-    popMatrix();
-  }
+  initx=mouseX;
+  inity=mouseY;
 }
 
 void mouseReleased() {
@@ -69,6 +65,7 @@ void draw() {
     toolPencil();
     toolEraser();
     toolDropper();
+    toolLine();
     toolRectangle();
     toolOval();
     toolFillAll();
