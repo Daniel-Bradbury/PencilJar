@@ -9,27 +9,15 @@ int c;
 void canvasUpdate() {
   canvas = get(80, 80, width-160, height-160);
 }
-public void spectrumWindowSetup(PApplet app, GWinData data) {
-  app.image(loadImage("colourspectrum.jpg"),0,0);
-  app.cursor(cursorDropper,4,4);
-}
-public void spectrumDropper(PApplet app, GWinData data, MouseEvent mouseEvent) {
-  if (mouseEvent.getAction()==MouseEvent.PRESS) {
-    c=app.get(app.mouseX,app.mouseY);
-  }
-}
-GWindow colourWindow;
+
 void setup() {
-  colourWindow = GWindow.getWindow(this, "Colour palette", 100, 50, 600, 388, JAVA2D);
-  colourWindow.setActionOnClose(G4P.KEEP_OPEN);
-  colourWindow.addPreHandler(this, "spectrumWindowSetup");
-  colourWindow.addMouseHandler(this, "spectrumDropper");
+  size(1200, 800, P2D);
   ((PGraphicsOpenGL)g).textureSampling(3);
+  colourWindowSetup();
   ellipseMode(CORNER);
   load();
   cursor=cursorPencil;
   cursor(cursor,4,4);
-  size(1200, 800, P2D);
   frameRate(200);
   noSmooth();
   background(255);
