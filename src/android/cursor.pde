@@ -1,0 +1,2 @@
+void cursorInit() {}
+void cursorCheckHand() {}
