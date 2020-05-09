@@ -14,8 +14,7 @@ void setup() {
   colourWindowSetup();
   ellipseMode(CORNER);
   load();
-  cursor=cursorPencil;
-  cursor(cursor,4,4);
+  cursorInit();
   frameRate(200);
   noSmooth();
   background(255);
@@ -82,13 +81,7 @@ void draw() {
   toolbar();
   fill(c);
   rect(width-40,10,30,30);
-  if (handbool!=_handbool) {
-    if (handbool) {
-      cursor(HAND);
-    } else {
-      cursor(cursor,4,4);
-    }
-  }
+  cursorCheckHand()
   press=false;
   _handbool=handbool;
 }
