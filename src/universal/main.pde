@@ -81,7 +81,7 @@ void draw() {
   toolbar();
   fill(c);
   rect(width-40,10,30,30);
-  cursorCheckHand()
+  cursorCheckHand();
   press=false;
   _handbool=handbool;
 }
