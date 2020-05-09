@@ -1,5 +1,3 @@
-import g4p_controls.*;
-
 boolean click, press;
 int initx, inity;
 PImage canvas;

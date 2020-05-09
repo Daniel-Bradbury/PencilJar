@@ -1,3 +1,4 @@
+import g4p_controls.*;
 PImage cursorPencil;
 PImage cursorEraser;
 PImage cursorDropper;
