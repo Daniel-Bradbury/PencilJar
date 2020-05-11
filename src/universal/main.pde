@@ -2,6 +2,7 @@ boolean click, press;
 int initx, inity;
 PImage canvas;
 PImage cursor;
+PImage spectrumImage;
 int canvasw, canvash;
 boolean handbool, _handbool, refreshCanvas=true;
 int c;
@@ -14,7 +15,8 @@ void setup() {
   canvasw=width-80;
   canvash=height-80;
   ((PGraphicsOpenGL)g).textureSampling(3);
-  colourWindowSetup();
+  spectrumImage=loadImage("colourspectrum.jpg");
+  spectrumInit();
   ellipseMode(CORNER);
   load();
   cursorInit();

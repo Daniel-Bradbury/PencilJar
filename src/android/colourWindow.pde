@@ -1,1 +1,1 @@
-void colourWindowSetup() {}
+void spectrumInit() {}
