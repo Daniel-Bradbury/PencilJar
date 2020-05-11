@@ -16,8 +16,8 @@ void canvasUpdate() {
 
 void setup() {
   
-  canvasw=width-80;
-  canvash=height-80;
+  canvasw=width-160;
+  canvash=height-160;
   ((PGraphicsOpenGL)g).textureSampling(3);
   spectrumImage=loadImage("colourspectrum.jpg");
   spectrumInit();
@@ -45,7 +45,7 @@ void mouseReleased() {
 }
 void keyPressed() {
   if (key=='s' || key=='S') {
-    get(80, 80, canvasw, canvash).save("images/save.png");
+    get(81, 81, canvasw-1, canvash-1).save("images/save.png");
   }
 }
 void draw() {
@@ -68,9 +68,9 @@ void draw() {
   fill(0);
   textSize(18);
   textAlign(CENTER);
-  text("Save with S!",width/2,canvash+30);
-  text("(This will overwrite your last saved image if you do not rename it)",width/2,canvash+50);
-  text(frameRate, width-50, canvash+40);
+  text("Save with S!",width/2,canvash+80+30);
+  text("(This will overwrite your last saved image if you do not rename it)",width/2,canvash+80+50);
+  text(frameRate, width-50, canvash+80+40);
   fill(0, 0, 0, 60);
   toolbar();
   fill(c);
