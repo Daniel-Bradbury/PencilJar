@@ -25,7 +25,6 @@ void setup() {
   load();
   cursorInit();
   frameRate(200);
-  noSmooth();
   background(255);
   canvasUpdate();
   _handbool=false;
