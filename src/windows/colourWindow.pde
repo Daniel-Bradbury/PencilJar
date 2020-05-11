@@ -11,6 +11,7 @@ public void spectrumDropper(PApplet app, GWinData data, MouseEvent mouseEvent) {
 void colourWindowSetup() {
   colourWindow = GWindow.getWindow(this, "Colour palette", 100, 50, 600, 388, JAVA2D);
   colourWindow.setActionOnClose(G4P.KEEP_OPEN);
+  colourWindow.setAlwaysOnTop(true);
   colourWindow.addPreHandler(this, "colourWindowSetup");
   colourWindow.addMouseHandler(this, "spectrumDropper");
 }

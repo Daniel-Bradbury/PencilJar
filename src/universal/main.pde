@@ -2,14 +2,17 @@ boolean click, press;
 int initx, inity;
 PImage canvas;
 PImage cursor;
-boolean handbool, _handbool, drawCanvas=true;
+int canvasw, canvash;
+boolean handbool, _handbool, refreshCanvas=true;
 int c;
 void canvasUpdate() {
-  canvas = get(80, 80, width-160, height-160);
+  canvas = get(80, 80, canvasw, canvash);
 }
 
 void setup() {
-  size(1200, 800, P2D);
+  size(displayWidth,displayHeight,P2D);
+  canvasw=width-80;
+  canvash=height-80;
   ((PGraphicsOpenGL)g).textureSampling(3);
   colourWindowSetup();
   ellipseMode(CORNER);
@@ -42,8 +45,8 @@ void keyPressed() {
 }
 void draw() {
   handbool=false;
-  tint(255,254);
-  if (drawCanvas) {
+  tint(255);
+  if (refreshCanvas) {
     image(canvas, 80, 80);
   }
   if (click) {
@@ -55,22 +58,8 @@ void draw() {
     toolOval();
     toolFillAll();
   }
-
-  strokeWeight(1);
-  stroke(100);
-  fill(100);
-
-  rect(0, 0, 80, 800);
-  rect(1120, 0, 80, 800);
-
-  rect(0, 0, 1200, 80);
-  rect(0, 720, 1200, 80);
-
-  stroke(0, 0, 0, 0);
-  fill(0, 0, 0, 60);
-  rect(1120, 100, 10, 630);
-  rect(100, 720, 1020, 10);
-  
+  drawBackground();
+  stroke(0,0);
   fill(0);
   textSize(18);
   textAlign(CENTER);
