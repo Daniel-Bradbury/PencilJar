@@ -1,3 +1,7 @@
+void settings() {
+  System.setProperty("jogl.disable.openglcore", "false"); //Fixes crash on some linux systems
+  size(displayWidth,displayHeight,P2D);
+}
 boolean click, press;
 int initx, inity;
 PImage canvas;
@@ -11,7 +15,7 @@ void canvasUpdate() {
 }
 
 void setup() {
-  size(displayWidth,displayHeight,P2D);
+  
   canvasw=width-80;
   canvash=height-80;
   ((PGraphicsOpenGL)g).textureSampling(3);
