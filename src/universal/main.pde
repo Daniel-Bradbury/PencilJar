@@ -68,9 +68,9 @@ void draw() {
   fill(0);
   textSize(18);
   textAlign(CENTER);
-  text("Save with S!",width/2,(height/20)*19);
-  text("(This will overwrite your last saved image if you do not rename it)",width/2,(height/20)*19+20);
-  text(frameRate, width-50, height-20);
+  text("Save with S!",width/2,canvash+30);
+  text("(This will overwrite your last saved image if you do not rename it)",width/2,canvash+50);
+  text(frameRate, width-50, canvash+40);
   fill(0, 0, 0, 60);
   toolbar();
   fill(c);
