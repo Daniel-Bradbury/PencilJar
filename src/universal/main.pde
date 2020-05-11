@@ -45,7 +45,7 @@ void mouseReleased() {
 }
 void keyPressed() {
   if (key=='s' || key=='S') {
-    get(81, 81, width-161, height-161).save("images/save.png");
+    get(80, 80, canvasw, canvash).save("images/save.png");
   }
 }
 void draw() {
