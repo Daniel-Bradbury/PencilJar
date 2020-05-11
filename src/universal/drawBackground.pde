@@ -4,7 +4,7 @@ void drawBackground() {
   fill(100);
 
   rect(0, 0, 80, height);
-  rect(canvasw, 0, 100, height);
+  rect(canvasw+80, 0, 100, height);
   rect(0, 0, width, 80);
-  rect(0, canvash, width, 100);
+  rect(0, canvash+80, width, 100);
 }

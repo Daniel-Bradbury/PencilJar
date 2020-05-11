@@ -16,8 +16,8 @@ void canvasUpdate() {
 
 void setup() {
   
-  canvasw=width-80;
-  canvash=height-80;
+  canvasw=width-160;
+  canvash=height-160;
   ((PGraphicsOpenGL)g).textureSampling(3);
   spectrumImage=loadImage("colourspectrum.jpg");
   spectrumInit();
@@ -45,7 +45,7 @@ void mouseReleased() {
 }
 void keyPressed() {
   if (key=='s' || key=='S') {
-    get(80, 80, canvasw, canvash).save("images/save.png");
+    get(81, 81, canvasw-1, canvash-1).save("images/save.png");
   }
 }
 void draw() {
