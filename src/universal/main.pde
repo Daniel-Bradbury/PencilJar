@@ -18,7 +18,6 @@ void setup() {
   canvasw=width-160;
   canvash=height-160;
   ((PGraphicsOpenGL)g).textureSampling(3);
-  spectrumImage=loadImage("colourspectrum.jpg");
   spectrumInit();
   ellipseMode(CORNER);
   load();

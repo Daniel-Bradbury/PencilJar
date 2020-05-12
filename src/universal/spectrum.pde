@@ -1,5 +1,5 @@
 void androidSpectrum() {}
-GWindow colourWindow;
+GWindow spectrumWindow;
 boolean spectrumInitialized = false;
 void spectrumSetup(PApplet app, GWinData data) {
   if (!(spectrumInitialized)) {
@@ -19,10 +19,10 @@ public void spectrumDropper(PApplet app, GWinData data, MouseEvent mouseEvent) {
 public void spectrumDraw(PApplet app, GWinData data) {}
 void spectrumInit() {
   generateSpectrum();
-  colourWindow = GWindow.getWindow(this, "Colour palette", 100, 50, 512, 306, JAVA2D);
-  colourWindow.setActionOnClose(G4P.KEEP_OPEN);
-  colourWindow.setAlwaysOnTop(true);
-  colourWindow.addPreHandler(this, "spectrumSetup");
-  colourWindow.addDrawHandler(this, "spectrumDraw");
-  colourWindow.addMouseHandler(this, "spectrumDropper");
+  spectrumWindow = GWindow.getWindow(this, "Colour palette", 100, 50, 512, 306, JAVA2D);
+  spectrumWindow.setActionOnClose(G4P.KEEP_OPEN);
+  spectrumWindow.setAlwaysOnTop(true);
+  spectrumWindow.addPreHandler(this, "spectrumSetup");
+  spectrumWindow.addDrawHandler(this, "spectrumDraw");
+  spectrumWindow.addMouseHandler(this, "spectrumDropper");
 }
