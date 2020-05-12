@@ -1,6 +1,6 @@
 void settings() {
   System.setProperty("jogl.disable.openglcore", "false"); //Fixes crash on some linux systems
-  size(displayWidth,displayHeight,P2D);
+  fullScreen(P2D);
 }
 boolean click, press;
 int initx, inity;
@@ -11,7 +11,7 @@ int canvasw, canvash;
 boolean handbool, _handbool, refreshCanvas=true;
 int c;
 void canvasUpdate() {
-  canvas = get(80, 80, canvasw, canvash);
+  canvas = get(80, 160, canvasw, canvash);
 }
 
 void setup() {
@@ -19,7 +19,7 @@ void setup() {
   canvash=height-160;
   ((PGraphicsOpenGL)g).textureSampling(3);
   spectrumImage=loadImage("colourspectrum.jpg");
-  spectrumInit();
+  generateSpectrum();
   ellipseMode(CORNER);
   load();
   cursorInit();
@@ -40,18 +40,18 @@ void mousePressed() {
 void mouseReleased() {
   click=false;
   canvasUpdate();
-  image(canvas, 80, 80);
+  //image(canvas, 80, 160);
 }
 void keyPressed() {
   if (key=='s' || key=='S') {
-    get(81, 81, canvasw-1, canvash-1).save("images/save.png");
+    get(81, 161, canvasw-1, canvash-1).save("images/save.png");
   }
 }
 void draw() {
   handbool=false;
   tint(255);
   if (refreshCanvas) {
-    image(canvas, 80, 80);
+    image(canvas, 80, 160);
   }
   if (click) {
     runTools();
@@ -61,8 +61,6 @@ void draw() {
   fill(0);
   textSize(18);
   textAlign(CENTER);
-  text("Save with S!",width/2,canvash+80+30);
-  text("(This will overwrite your last saved image if you do not rename it)",width/2,canvash+80+50);
   text(frameRate, width-50, canvash+80+40);
   fill(0, 0, 0, 60);
   toolbar();
