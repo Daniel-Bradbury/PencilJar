@@ -15,7 +15,6 @@ void canvasUpdate() {
 }
 
 void setup() {
-  
   canvasw=width-160;
   canvash=height-160;
   ((PGraphicsOpenGL)g).textureSampling(3);
