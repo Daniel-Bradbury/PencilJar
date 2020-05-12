@@ -4,6 +4,7 @@ boolean spectrumInitialized = false;
 void spectrumSetup(PApplet app, GWinData data) {
   if (!(spectrumInitialized)) {
     app.noSmooth();
+    app.frameRate(15);
     app.cursor(cursorDropper,4,4);
     app.frame.setResizable(true);
     app.image(spectrumImg,0,0,app.width,app.height);
