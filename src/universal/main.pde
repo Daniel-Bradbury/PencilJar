@@ -1,6 +1,6 @@
 void settings() {
   System.setProperty("jogl.disable.openglcore", "false"); //Fixes crash on some linux systems
-  size(displayWidth,displayHeight,P2D);
+  fullScreen(P2D);
 }
 boolean click, press;
 int initx, inity;
