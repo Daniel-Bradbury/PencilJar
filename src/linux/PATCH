@@ -1,0 +1,1 @@
+IN main.pde REPLACE fullScreen(P2D) WITH fullScreen(P2D, SPAN);
