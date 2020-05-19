@@ -3,6 +3,4 @@
 
 Draw and select tools with left click
 
-Erase with right click
-
 Save with S
