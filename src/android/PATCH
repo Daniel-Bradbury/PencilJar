@@ -1,0 +1,11 @@
+IN main.pde REPLACE canvas = get(80, 80, canvasw, canvash) WITH canvas = get(80, 160, canvasw, canvash);
+IN main.pde REPLACE spectrumInit() WITH generateSpectrum();
+IN main.pde REPLACE image(canvas, 80, 80) WITH //image(canvas, 80, 160);
+IN main.pde REPLACE get(81, 81, canvasw-1, canvash-1).save("images/save.png") WITH get(81, 161, canvasw-1, canvash-1).save("images/save.png");
+IN main.pde REPLACE image(canvas, 80, 80) WITH image(canvas, 80, 160);
+
+IN toolLine.pde REPLACE image(canvas, 80, 80) WITH image(canvas, 80, 160);
+IN toolOval.pde REPLACE image(canvas, 80, 80) WITH image(canvas, 80, 160);
+IN toolRectangle.pde REPLACE image(canvas, 80, 80) WITH image(canvas, 80, 160);
+IN drawBackground.pde REPLACE rect(0, canvash+80, width, 100) with ;
+IN drawBackground.pde REPLACE rect(0, 0, width, 80) WITH rect(0, 0, width, 160);
