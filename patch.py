@@ -9,5 +9,6 @@ def patch(patchline):
     codefile.write(codefilecontent.replace(old, new))
 patchfile=open("PATCH", "r")
 patchfilecontent=patchfile.readlines()
-for x in range(0,len(patchfilecontent)):
+for x in range(0, len(patchfilecontent)):
+  print(patchfilecontent[x-1])
   patch(patchfilecontent[x-1])
